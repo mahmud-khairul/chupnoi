@@ -42,7 +42,7 @@ function SuccessContent() {
           className="border border-brand-border p-7 mb-8 text-left"
           style={{ background: '#0f0f0f' }}
         >
-          <div className="space-y-4 text-[13px] text-brand-muted leading-relaxed font-light">
+          <div className="space-y-4 text-[16px] text-brand-muted leading-relaxed font-light">
             <p>
               Thank you for submitting this report. Our review team will carefully verify the information
               against public records, law enforcement data, and available documentation.

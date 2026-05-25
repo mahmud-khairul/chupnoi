@@ -15,7 +15,7 @@ function Row({ label, value }: { label: string; value: unknown }) {
       <div className="text-[9px] font-bold tracking-[2px] text-[#555] uppercase px-3.5 py-2.5 bg-brand-card">
         {label}
       </div>
-      <div className="text-[13px] text-brand-cream px-3.5 py-2.5 leading-relaxed border-l border-brand-border">
+      <div className="text-[16px] text-brand-cream px-3.5 py-2.5 leading-relaxed border-l border-brand-border">
         {Array.isArray(value) ? (value as string[]).join(', ') : String(value)}
       </div>
     </div>
@@ -144,7 +144,7 @@ export default function DetailPanel({ id, onClose }: DetailPanelProps) {
               <select
                 value={tier}
                 onChange={e => setTier(e.target.value)}
-                className="w-full bg-brand-card border border-brand-border text-brand-cream px-3 py-2.5 text-[13px] outline-none cursor-pointer font-sans"
+                className="w-full bg-brand-card border border-brand-border text-brand-cream px-3 py-2.5 text-[16px] outline-none cursor-pointer font-sans"
               >
                 <option value="green">Green — Court-verified conviction</option>
                 <option value="yellow">Yellow — Multiple credible sources</option>

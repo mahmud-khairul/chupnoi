@@ -60,7 +60,7 @@ function Input({ value, onChange, placeholder, type = 'text' }: { value: string;
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-brand-card text-brand-cream px-3 py-2.5 text-[13px] outline-none font-sans placeholder:text-[#333]" style={{ border: '1px solid #E0E0E0' }}
+      className="w-full bg-brand-card text-brand-cream px-3 py-2.5 text-[16px] outline-none font-sans placeholder:text-[#333]" style={{ border: '1px solid #E0E0E0' }}
     />
   )
 }
@@ -79,7 +79,7 @@ function Textarea({ value, onChange, placeholder, rows = 3 }: { value: string; o
 
 function Radio({ name, value, checked, onChange, label }: { name: string; value: string; checked: boolean; onChange: () => void; label: string }) {
   return (
-    <label className="flex items-center gap-2.5 text-[13px] text-brand-muted cursor-pointer hover:text-brand-cream transition-colors">
+    <label className="flex items-center gap-2.5 text-[16px] text-brand-muted cursor-pointer hover:text-brand-cream transition-colors">
       <input type="radio" name={name} value={value} checked={checked} onChange={onChange} className="accent-brand-red w-3.5 h-3.5 flex-shrink-0" />
       {label}
     </label>
@@ -139,7 +139,7 @@ export default function ReportPage() {
         <h1 className="font-display text-[clamp(32px,5vw,56px)] font-black text-brand-cream tracking-tight mb-3">
           Report an Abuse
         </h1>
-        <p className="text-[13px] text-brand-muted leading-relaxed max-w-[560px] mb-5 font-light">
+        <p className="text-[16px] text-brand-muted leading-relaxed max-w-[560px] mb-5 font-light">
           Submit information about perpetrators of child abuse and sexual violence in Bangladesh.
           All submissions are reviewed and verified by NGO partners before publication.
         </p>

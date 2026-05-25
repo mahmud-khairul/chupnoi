@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import Link from 'next/link'
 import StatCard from '@/components/admin/StatCard'
 import ReportRow from '@/components/admin/ReportRow'
 import DetailPanel from '@/components/admin/DetailPanel'
@@ -52,32 +53,25 @@ function AdminContent() {
 
   return (
     <div className="min-h-screen bg-brand-black">
-      {/* Top bar */}
+      {/* Admin nav */}
       <div
-        className="fixed top-0 left-0 right-0 z-40 border-b border-brand-border"
+        className="fixed top-0 left-0 right-0 z-50 border-b border-brand-border"
         style={{ background: 'rgba(10,10,10,0.97)', backdropFilter: 'blur(12px)' }}
       >
-      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
-        <div className="flex items-center gap-3">
-          <div className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase flex items-center gap-1.5">
-            <svg viewBox="0 0 20 20" fill="currentColor" width="10" height="10">
-              <path d="M10 1L3 4v5c0 4.4 3 8.5 7 9.9C14 17.5 17 13.4 17 9V4L10 1z" />
-            </svg>
-            SafeGuard BD
-          </div>
-          <span className="text-[#333] text-[10px]">/</span>
-          <span className="text-[10px] text-brand-muted tracking-[1px] uppercase font-bold">Admin</span>
+        <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
+          <Link href="/" className="font-display text-xl font-black text-brand-cream no-underline">
+            চুপ <span className="text-brand-red">নই</span>
+          </Link>
+          <button
+            onClick={async () => {
+              await fetch('/api/admin/logout', { method: 'POST' })
+              router.push('/admin/login')
+            }}
+            className="text-[11px] text-brand-muted hover:text-brand-cream font-bold tracking-[1.5px] uppercase transition-colors border border-brand-border px-3 py-1.5"
+          >
+            Logout
+          </button>
         </div>
-        <button
-          onClick={async () => {
-            await fetch('/api/admin/logout', { method: 'POST' })
-            router.push('/admin/login')
-          }}
-          className="text-[11px] text-brand-muted hover:text-brand-cream transition-colors font-bold tracking-[1px] uppercase"
-        >
-          Sign Out
-        </button>
-      </div>
       </div>
 
       {/* Main content */}

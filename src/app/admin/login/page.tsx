@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
                 onChange={e => setUsername(e.target.value)}
                 required
                 autoComplete="username"
-                className="w-full border border-brand-border px-4 py-3 text-[13px] text-brand-cream bg-brand-black outline-none focus:border-[#444] transition-colors font-sans placeholder:text-[#333]"
+                className="w-full border border-brand-border px-4 py-3 text-[16px] text-brand-cream bg-brand-black outline-none focus:border-[#444] transition-colors font-sans placeholder:text-[#333]"
                 placeholder="admin"
               />
             </div>
@@ -74,7 +74,7 @@ export default function AdminLoginPage() {
                 onChange={e => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full border border-brand-border px-4 py-3 text-[13px] text-brand-cream bg-brand-black outline-none focus:border-[#444] transition-colors font-sans placeholder:text-[#333]"
+                className="w-full border border-brand-border px-4 py-3 text-[16px] text-brand-cream bg-brand-black outline-none focus:border-[#444] transition-colors font-sans placeholder:text-[#333]"
                 placeholder="••••••••"
               />
             </div>

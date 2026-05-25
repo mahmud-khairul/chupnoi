@@ -52,7 +52,7 @@ export default function RegistryPage() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 placeholder="Search name, offense, location..."
-                className="border-none outline-none text-[13px] text-brand-cream bg-transparent flex-1 font-sans placeholder:text-[#444]"
+                className="border-none outline-none text-[16px] text-brand-cream bg-transparent flex-1 font-sans placeholder:text-[#444]"
               />
             </div>
             <select

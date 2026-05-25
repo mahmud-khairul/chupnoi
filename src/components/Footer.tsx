@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex justify-between items-center">
         <div>
           <div className="font-display text-lg font-black text-brand-cream">
-            Safe<span className="text-brand-red">Guard</span> BD
+            চুপ <span className="text-brand-red">নই</span>
           </div>
           <p className="text-brand-muted text-[11px] mt-1">
-            চুপ নই। Not silent.
+            আমরা দেখছি। আমরা বলবো।
           </p>
         </div>
         <p className="text-[11px] text-[#333] max-w-[380px] text-center leading-relaxed">

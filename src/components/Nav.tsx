@@ -25,20 +25,23 @@ export default function Nav({ showAdminLinks = false }: NavProps) {
         </Link>
 
         <div className="flex items-center gap-1">
+          <Link href="/the-problem" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
+            সমস্যা
+          </Link>
           <Link href="/registry" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            Registry
+            তালিকা
           </Link>
           <Link href="/#what-we-stand-for" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            What We Stand For
+            আমাদের অবস্থান
           </Link>
           <Link href="/#who-are-we" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            Who Are We
+            আমরা কারা
           </Link>
-          <Link href="/#what-we-want" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            What We Want
+          <Link href="/what-we-want" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
+            আমাদের দাবি
           </Link>
           <Link href="/report" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            Report Abuse
+            রিপোর্ট করুন
           </Link>
           {showAdminLinks && (
             <>
