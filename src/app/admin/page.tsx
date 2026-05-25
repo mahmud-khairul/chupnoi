@@ -51,6 +51,7 @@ function AdminContent() {
   const selectedId = searchParams.get('report')
 
   const [panel, setPanel] = useState<'reports' | 'support'>('reports')
+  const [statusFilter, setStatusFilter] = useState<'pending' | 'approved' | 'rejected'>('pending')
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const [stats, setStats] = useState<Stats>({ pending: 0, approved: 0, rejected: 0 })
   const [support, setSupport] = useState<SupportSubmission[]>([])
@@ -58,9 +59,10 @@ function AdminContent() {
   const [loading, setLoading] = useState(true)
   const [expandedId, setExpandedId] = useState<string | null>(null)
 
-  function loadReports() {
+  function loadReports(status?: 'pending' | 'approved' | 'rejected') {
+    const s = status ?? statusFilter
     setLoading(true)
-    fetch('/api/admin/submissions')
+    fetch(`/api/admin/submissions?status=${s}`)
       .then(r => r.json())
       .then(data => {
         setSubmissions(data.submissions ?? [])
@@ -81,7 +83,7 @@ function AdminContent() {
   function switchPanel(p: 'reports' | 'support') {
     setPanel(p)
     setExpandedId(null)
-    if (p === 'reports') loadReports()
+    if (p === 'reports') { setStatusFilter('pending'); loadReports('pending') }
     else loadSupport()
   }
 
@@ -130,16 +132,28 @@ function AdminContent() {
           {/* ── REPORTS PANEL ── */}
           {panel === 'reports' && (
             <>
-              <div className="mb-8 pt-6">
+              <div className="mb-6 pt-6">
                 <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Review Panel</p>
                 <h1 className="font-display text-[clamp(28px,4vw,48px)] font-black text-brand-cream tracking-tight">
                   Submission Queue
                 </h1>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#1a1a1a', marginBottom: '32px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#1a1a1a', marginBottom: '24px' }}>
                 <StatCard value={stats.pending} label="Pending Review" color="#e67e22" />
                 <StatCard value={stats.approved} label="Approved" color="#27ae60" />
                 <StatCard value={stats.rejected} label="Rejected" color="#c0392b" />
+              </div>
+              <div className="flex gap-1 mb-6">
+                {(['pending', 'approved', 'rejected'] as const).map(s => (
+                  <button
+                    key={s}
+                    onClick={() => { setStatusFilter(s); loadReports(s) }}
+                    className={`text-[10px] font-bold tracking-[1.5px] uppercase px-4 py-1.5 border cursor-pointer transition-colors ${statusFilter === s ? 'bg-brand-red border-brand-red text-white' : 'border-brand-border text-brand-muted hover:text-brand-cream bg-transparent'}`}
+                  >
+                    {s === 'pending' ? 'Pending' : s === 'approved' ? 'Approved' : 'Rejected'}
+                    <span className="ml-1.5 opacity-60">{stats[s]}</span>
+                  </button>
+                ))}
               </div>
               <div className="border border-brand-border overflow-hidden">
                 <table className="w-full border-collapse">
@@ -152,9 +166,20 @@ function AdminContent() {
                   </thead>
                   <tbody>
                     {loading && <tr><td colSpan={6} className="px-5 py-12 text-center text-brand-muted text-sm">Loading...</td></tr>}
-                    {!loading && submissions.length === 0 && <tr><td colSpan={6} className="px-5 py-12 text-center text-brand-muted text-sm">No pending submissions.</td></tr>}
+                    {!loading && submissions.length === 0 && (
+                      <tr><td colSpan={6} className="px-5 py-12 text-center text-brand-muted text-sm">
+                        No {statusFilter} submissions.
+                      </td></tr>
+                    )}
                     {submissions.map((s, i) => (
-                      <ReportRow key={s.id} submission={s} index={i} onOpen={() => openDetail(s.id)} onAction={loadReports} />
+                      <ReportRow
+                        key={s.id}
+                        submission={s}
+                        index={i}
+                        onOpen={() => openDetail(s.id)}
+                        onAction={loadReports}
+                        onRemove={statusFilter === 'approved' ? loadReports : undefined}
+                      />
                     ))}
                   </tbody>
                 </table>

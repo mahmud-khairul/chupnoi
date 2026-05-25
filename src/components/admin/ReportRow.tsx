@@ -18,9 +18,10 @@ interface ReportRowProps {
   index: number
   onOpen: () => void
   onAction: () => void
+  onRemove?: () => void
 }
 
-export default function ReportRow({ submission, index, onOpen, onAction }: ReportRowProps) {
+export default function ReportRow({ submission, index, onOpen, onAction, onRemove }: ReportRowProps) {
   const date = new Date(submission.createdAt).toLocaleDateString('en-GB')
 
   async function quickApprove() {
@@ -55,18 +56,33 @@ export default function ReportRow({ submission, index, onOpen, onAction }: Repor
           >
             Review
           </button>
-          <button
-            onClick={quickApprove}
-            className="flex items-center gap-1 text-[#27ae60] border border-[#27ae60] bg-transparent px-3 py-1.5 text-[11px] font-bold tracking-wide cursor-pointer hover:bg-[#27ae60] hover:text-white transition-all font-sans"
-          >
-            ✓
-          </button>
-          <button
-            onClick={quickReject}
-            className="flex items-center gap-1 text-brand-red border border-brand-red bg-transparent px-3 py-1.5 text-[11px] font-bold tracking-wide cursor-pointer hover:bg-brand-red hover:text-white transition-all font-sans"
-          >
-            ✕
-          </button>
+          {onRemove ? (
+            <button
+              onClick={async () => {
+                if (!confirm('Remove this entry from the registry?')) return
+                await fetch(`/api/admin/submissions/${submission.id}/remove`, { method: 'POST' })
+                onRemove()
+              }}
+              className="text-brand-red border border-brand-red bg-transparent px-3 py-1.5 text-[11px] font-bold tracking-wide cursor-pointer hover:bg-brand-red hover:text-white transition-all font-sans"
+            >
+              Remove
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={quickApprove}
+                className="flex items-center gap-1 text-[#27ae60] border border-[#27ae60] bg-transparent px-3 py-1.5 text-[11px] font-bold tracking-wide cursor-pointer hover:bg-[#27ae60] hover:text-white transition-all font-sans"
+              >
+                ✓
+              </button>
+              <button
+                onClick={quickReject}
+                className="flex items-center gap-1 text-brand-red border border-brand-red bg-transparent px-3 py-1.5 text-[11px] font-bold tracking-wide cursor-pointer hover:bg-brand-red hover:text-white transition-all font-sans"
+              >
+                ✕
+              </button>
+            </>
+          )}
         </div>
       </td>
     </tr>
