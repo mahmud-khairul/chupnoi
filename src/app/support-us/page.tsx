@@ -346,7 +346,7 @@ function SuccessMessage() {
           </svg>
         </div>
       </div>
-      <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-3">সফলভাবে জমা হয়েছে</p>
+      <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-3">সফলভাবে জমা হয়েছে</p>
       <p className="font-display text-[32px] font-black text-brand-cream leading-tight mb-4">ধন্যবাদ।<br />পাশে আছেন।</p>
       <p className="text-brand-muted text-[14px] font-light leading-relaxed">
         আমরা তথ্যটি যাচাই করে শীঘ্রই যোগাযোগ করব। আপনার সহযোগিতা এই উদ্যোগকে আরও শক্তিশালী করবে।

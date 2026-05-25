@@ -65,25 +65,28 @@ export default async function LandingPage() {
             </Link>
           </div>
 
-          <div
-            className="grid grid-cols-2 flex-shrink-0"
-            style={{ gap: '1px', background: '#1e1e2e' }}
-          >
-            {[
-              { num: '132K+', label: 'অপেক্ষমাণ মামলা' },
-              { num: '99', label: 'আদালত' },
-              { num: '30K+', label: '৫+ বছর অপেক্ষায়' },
-              { num: '23%', label: 'সিস্টেমে আটকে আছে' },
-            ].map(s => (
-              <div
-                key={s.label}
-                className="px-10 py-8 hover:brightness-110 transition-all"
-                style={{ background: 'rgba(192,57,43,0.08)', minWidth: '180px' }}
-              >
-                <div className="font-display text-[42px] font-black text-brand-red leading-none mb-2">{s.num}</div>
-                <div className="text-[9px] text-brand-muted font-bold tracking-[2px] uppercase">{s.label}</div>
-              </div>
-            ))}
+          <div className="flex-shrink-0">
+            <div
+              className="grid grid-cols-2"
+              style={{ gap: '1px', background: '#1e1e2e' }}
+            >
+              {[
+                { num: '132K+', label: 'অপেক্ষমাণ মামলা' },
+                { num: '99', label: 'আদালত' },
+                { num: '30K+', label: '৫+ বছর অপেক্ষায়' },
+                { num: '23%', label: 'সিস্টেমে আটকে আছে' },
+              ].map(s => (
+                <div
+                  key={s.label}
+                  className="px-10 py-8 hover:brightness-110 transition-all"
+                  style={{ background: 'rgba(192,57,43,0.08)', minWidth: '180px' }}
+                >
+                  <div className="font-display text-[42px] font-black text-brand-red leading-none mb-2">{s.num}</div>
+                  <div className="text-[14px] text-brand-muted font-bold tracking-[2px] uppercase">{s.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] text-brand-muted font-light tracking-wide mt-3">*ইন্টারনেট থেকে সংগৃহীত</p>
           </div>
         </div>
       </div>
@@ -111,7 +114,7 @@ export default async function LandingPage() {
         <div className={C}>
           <div className="flex justify-between items-end mb-6">
             <div>
-              <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
+              <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
               <h2 className="font-display text-[30px] font-black text-brand-cream">অপরাধী রেজিস্ট্রি</h2>
               <p className="text-[12px] text-brand-muted mt-1">Showing {records.length} of {stats.totalRecords} records</p>
             </div>
@@ -159,7 +162,7 @@ export default async function LandingPage() {
 
           {/* Header */}
           <div className="text-center mb-12">
-            <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের সনদ</p>
+            <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের সনদ</p>
             <h2 className="font-display text-[clamp(32px,5vw,52px)] font-black text-brand-cream leading-tight mb-4">
               আমরা যা <span className="text-brand-red italic">বিশ্বাস করি</span>
             </h2>
@@ -245,7 +248,7 @@ export default async function LandingPage() {
         <div className={`${C} py-16`}>
 
           <div className="max-w-[760px] mx-auto">
-            <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের গল্প</p>
+            <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের গল্প</p>
             <h2 className="font-display text-[clamp(36px,5vw,56px)] font-black text-brand-cream leading-tight mb-2">
               আমরা কারা?
             </h2>

@@ -28,8 +28,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['var(--font-playfair)', 'Georgia', 'serif'],
-        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        display: ["'Noto Serif Bengali'", 'var(--font-playfair)', 'Georgia', 'serif'],
+        sans: ["'Noto Serif Bengali'", 'var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },
