@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'SafeGuard BD — Child Protection Registry',
+  title: 'Safeguard BD - Name the Culprit',
   description: 'A transparent public record of child abuse and sexual violence perpetrators in Bangladesh.',
 }
 

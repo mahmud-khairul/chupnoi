@@ -125,12 +125,12 @@ export default function TheProblemPage() {
               <p className="text-[16px] text-brand-muted font-light leading-relaxed">
                 আপনি যদি কোনো ঘটনা জানেন — রিপোর্ট করুন। আপনি যদি কাউকে চেনেন যে এই তালিকায় থাকা উচিত — জানান। আপনি যদি শুধু পড়েন — শেয়ার করুন।
               </p>
-              <p className="font-display text-[20px] font-bold text-brand-cream">আমরা থামব না।</p>
+              <p className="font-display text-[20px] font-bold text-brand-cream">আমরা থামবো না।</p>
             </div>
 
             {/* Closing box */}
             <div className="border border-brand-red/30 p-8" style={{ background: 'rgba(192,57,43,0.04)' }}>
-              <p className="font-display text-[28px] font-black text-brand-red italic">চুপ নই। থামব না।</p>
+              <p className="font-display text-[28px] font-black text-brand-red italic">চুপ নই। থামবো না।</p>
             </div>
 
           </div>
