@@ -13,10 +13,13 @@ export default function WhatWeWantPage() {
           <div className="max-w-[800px] mx-auto">
 
             {/* Part 1: Government demands */}
-            <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের দাবি</p>
-            <h2 className="font-display text-[clamp(32px,5vw,52px)] font-black text-brand-cream leading-tight mb-4">
-              What We <span className="text-brand-red italic">Want</span>
-            </h2>
+            <h1 className="font-display font-black leading-[0.92] tracking-tight mb-8">
+              <span className="block text-[clamp(48px,7vw,88px)] text-brand-cream">আমাদের সনদ।</span>
+              <span className="block text-[clamp(48px,7vw,88px)] text-brand-red italic">আমরা যা চাই।</span>
+            </h1>
+            <p className="text-brand-muted text-[16px] font-light leading-relaxed mb-12 max-w-[680px]">
+              এটা কোনো রাজনৈতিক দলিল না। এটা একটা প্রতিশ্রুতি। আমাদের নিজেদের কাছে, আপনাদের কাছে, এবং সেই প্রতিটা শিশুর কাছে যারা এখনো বিচারের অপেক্ষায়। পরিবর্তন দুইটা জায়গা থেকে আসতে হবে। <strong className="text-brand-cream">উপর থেকে, ক্ষমতায় থাকাদের কাছ থেকে।</strong> এবং ভেতর থেকে, আমাদের প্রত্যেকের কাছ থেকে।
+            </p>
 
             <div className="mb-12">
               <h3 className="font-display text-[20px] font-bold text-brand-cream mb-3 pb-2" style={{ borderBottom: '2px solid #c0392b', display: 'inline-block' }}>

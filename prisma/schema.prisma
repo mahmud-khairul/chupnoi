@@ -26,6 +26,7 @@ model Submission {
   courtCaseNumber       String?
   verdictDate           String?
   sentenceStatus        String?
+  courtDocuments        String?
   newsSources           String
   firNumber             String?
   currentLocation       String
@@ -36,12 +37,37 @@ model Submission {
   submitterEmail        String
   knowledgeSource       String
   willingToContact      String
+  victimNameHidden      Boolean   @default(false)
+  submitterAnonymous    Boolean   @default(false)
   verifiedConsent       Boolean   @default(false)
   privacyConsent        Boolean   @default(false)
   adminNotes            String?
   reviewedAt            DateTime?
   tier                  String?
   perpetrator           Perpetrator?
+}
+
+model SupportSubmission {
+  id            String   @id @default(uuid())
+  createdAt     DateTime @default(now())
+  type          String
+  status        String   @default("pending")
+  email         String
+  phone         String?
+  district      String
+  supportType   String
+  orgName       String?
+  regNum        String?
+  contactPerson String?
+  contactTitle  String?
+  focusArea     String?
+  howToHelp     String?
+  fullName      String?
+  specialty     String?
+  barCouncilId  String?
+  court         String?
+  bmdcId        String?
+  institution   String?
 }
 
 model Perpetrator {

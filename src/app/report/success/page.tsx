@@ -33,9 +33,9 @@ function SuccessContent() {
           </div>
         </div>
 
-        <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">Submitted Successfully</p>
+        <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">সফলভাবে জমা হয়েছে</p>
         <h1 className="font-display text-[clamp(36px,6vw,64px)] font-black text-brand-cream tracking-tight leading-[0.95] mb-6">
-          Report<br />Received.
+          রিপোর্ট<br />পাওয়া গেছে।
         </h1>
 
         <div
@@ -44,17 +44,13 @@ function SuccessContent() {
         >
           <div className="space-y-4 text-[16px] text-brand-muted leading-relaxed font-light">
             <p>
-              Thank you for submitting this report. Our review team will carefully verify the information
-              against public records, law enforcement data, and available documentation.
+              তথ্যটি জমা দেওয়ার জন্য আপনাকে ধন্যবাদ। আমাদের পার্টনারদের দ্বারা আপনার দেওয়া তথ্যটি পর্যালোচনা করা হবে।
             </p>
             <p>
-              <span className="text-brand-cream font-medium">Review timeline:</span> Reports are typically
-              reviewed within <span className="text-brand-cream font-medium">5–7 business days</span>. You
-              will not receive an automated confirmation email, but your submission has been recorded.
+              <span className="text-brand-cream font-medium">ভবিষ্যতে আপনার সাথে যোগাযোগ করা হতে পারে।</span> তথ্যটি সঠিকভাবে যাচাই করা সম্ভব হলে, এটি পাবলিক ডাটাবেজে যুক্ত করা হবে।
             </p>
             <p>
-              Records are only published after verification. If additional information is needed and you
-              provided contact details, our team may reach out.
+              আপনি কোনো স্বয়ংক্রিয় নিশ্চিতকরণ ইমেল পাবেন না, তবে আপনার জমা তথ্য রেকর্ড করা হয়েছে।
             </p>
           </div>
         </div>
@@ -64,10 +60,10 @@ function SuccessContent() {
           style={{ background: '#0f0f0f', borderLeft: '3px solid #c0392b' }}
         >
           <p className="text-[11px] text-brand-muted font-light leading-relaxed">
-            <span className="text-brand-cream font-medium">Need immediate help?</span>{' '}
-            Contact Ain o Salish Kendra at{' '}
-            <span className="text-brand-cream">01779-554391</span> or Bangladesh National
-            Women Lawyers Association at <span className="text-brand-cream">01711-664165</span>.
+            <span className="text-brand-cream font-medium">জরুরি সাহায্য দরকার?</span>{' '}
+            আইন ও সালিশ কেন্দ্র:{' '}
+            <span className="text-brand-cream">০১৭৭৯-৫৫৪৩৯১</span> অথবা বাংলাদেশ জাতীয় মহিলা আইনজীবী সমিতি:{' '}
+            <span className="text-brand-cream">০১৭১১-৬৬৪১৬৫</span>।
           </p>
         </div>
 
@@ -76,13 +72,13 @@ function SuccessContent() {
             href="/registry"
             className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:bg-brand-red-dark transition-colors"
           >
-            View Registry
+            তালিকা দেখুন
           </Link>
           <Link
             href="/"
             className="text-brand-cream border border-brand-border px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:border-[#444] transition-colors"
           >
-            Return Home
+            হোমে ফিরুন
           </Link>
         </div>
       </div>

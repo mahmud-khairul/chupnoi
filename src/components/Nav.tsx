@@ -43,6 +43,9 @@ export default function Nav({ showAdminLinks = false }: NavProps) {
           <Link href="/report" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
             রিপোর্ট করুন
           </Link>
+          <Link href="/support-us" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
+            সহায়তা
+          </Link>
           {showAdminLinks && (
             <>
               <Link href="/admin" className="text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-brand-border no-underline">

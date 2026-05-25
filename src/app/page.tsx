@@ -92,9 +92,9 @@ export default async function LandingPage() {
         <div className={C}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#111' }}>
             {[
-              { title: 'Community Protection', desc: 'This registry empowers communities with knowledge about individuals who pose a risk to children.' },
-              { title: 'Verified Records', desc: 'All entries are verified against public court records, law enforcement data, and NGO reports before publication.' },
-              { title: 'Support Survivors', desc: 'We stand with survivors. If you or someone you know needs help, contact Ain o Salish Kendra: 01779-554391.' },
+              { title: 'সমাজের সুরক্ষা', desc: 'এই তালিকা সমাজকে সেই মানুষদের সম্পর্কে তথ্য দেয় যারা শিশুদের জন্য হুমকিস্বরূপ।' },
+              { title: 'যাচাইকৃত তথ্য', desc: 'প্রকাশের আগে প্রতিটি তথ্য আদালতের নথি, আইন প্রয়োগকারী সংস্থার তথ্য ও এনজিও রিপোর্টের বিপরীতে যাচাই করা হয়।' },
+              { title: 'ভুক্তভোগীর পাশে', desc: 'আমরা ভুক্তভোগীদের সাথে আছি। সাহায্যের প্রয়োজন হলে আইন ও সালিশ কেন্দ্রে যোগাযোগ করুন: ০১৭৭৯-৫৫৪৩৯১।' },
             ].map(p => (
               <div key={p.title} className="bg-brand-black px-8 py-7 border-l-[3px] border-l-transparent hover:border-l-brand-red transition-all">
                 <div className="font-display text-[15px] font-bold text-brand-cream mb-2">{p.title}</div>
@@ -111,7 +111,7 @@ export default async function LandingPage() {
           <div className="flex justify-between items-end mb-6">
             <div>
               <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
-              <h2 className="font-display text-[30px] font-black text-brand-cream">Perpetrator Registry</h2>
+              <h2 className="font-display text-[30px] font-black text-brand-cream">অপরাধী রেজিস্ট্রি</h2>
               <p className="text-[12px] text-brand-muted mt-1">Showing {records.length} of {stats.totalRecords} records</p>
             </div>
             <Link href="/registry" className="text-brand-red text-[10px] font-bold tracking-[1px] uppercase no-underline hover:underline">
@@ -205,7 +205,7 @@ export default async function LandingPage() {
                 { n: '২', title: 'সতর্ক থাকুন, চুপ থাকবেন না', desc: 'সতর্কতার লক্ষণ দেখলে রিপোর্ট করুন। বুলিং, নিষ্ঠুরতা, নির্যাতন — কথা বলুন।' },
                 { n: '৩', title: 'ভুক্তভোগীকে বিশ্বাস করুন', desc: 'তারা কী পরেছিল, কোথায় গিয়েছিল — প্রশ্ন করবেন না। আগে বিশ্বাস করুন।' },
                 { n: '৪', title: 'দীর্ঘমেয়াদী সচেতনতা', desc: 'তিনদিনের আবেগ নয়। স্কুলে, মসজিদে, পাড়ায় বছরের পর বছর কথা বলতে হবে।' },
-                { n: '৫', title: 'নেতাদের জবাবদিহি করুন', desc: 'শিক্ষক, ইমাম, কাউন্সিলরকে সরাসরি জিজ্ঞেস করুন। আপনার নীরবতা তাদের সাহস দেয়।' },
+                { n: '৫', title: 'কমিউনিটি লিডারদের জবাবদিহিতা', desc: 'শিক্ষক, ইমাম, কাউন্সিলরকে সরাসরি জিজ্ঞেস করুন। আপনার নীরবতা তাদের সাহস দেয়।' },
               ].map(({ n, title, desc }) => (
                 <div key={n} className="border border-brand-border p-5" style={{ background: 'rgba(192,57,43,0.04)' }}>
                   <div
