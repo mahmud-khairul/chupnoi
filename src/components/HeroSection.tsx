@@ -64,18 +64,16 @@ export default function HeroSection() {
           style={{ gap: '1px', background: '#1a1a1a' }}
         >
           {[
-            { num: '৭,০৬৮', label: '২০২৫ সালে ধর্ষণের মামলা' },
-            { num: '২৭%', label: '২০২৪ থেকে বৃদ্ধি' },
-            { num: '৯৯%', label: 'মামলা জনসমক্ষে অদৃশ্য' },
+            { num: '৭,০৬৮', label: 'Rape Cases in 2025' },
+            { num: '২৭%', label: 'Increase from 2024' },
+            { num: '৯৯%', label: 'Cases Invisible to Public' },
           ].map(s => (
             <div key={s.label} className="bg-brand-black px-6 py-5 hover:bg-brand-card transition-colors">
               <div className="font-display text-[36px] font-black text-brand-red leading-none mb-2">{s.num}</div>
-              <div className="text-[14px] text-brand-muted font-bold tracking-[1.5px] uppercase">{s.label}</div>
+              <div className="text-[9px] text-brand-muted font-bold tracking-[1.5px] uppercase">{s.label}</div>
             </div>
           ))}
         </div>
-
-        <p className="text-[11px] text-brand-muted font-light tracking-wide mb-8 -mt-8">*ইন্টারনেট থেকে সংগৃহীত</p>
 
         <div className="flex gap-3">
           <Link

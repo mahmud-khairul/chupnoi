@@ -133,7 +133,7 @@ function AdminContent() {
           {panel === 'reports' && (
             <>
               <div className="mb-6 pt-6">
-                <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Review Panel</p>
+                <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Review Panel</p>
                 <h1 className="font-display text-[clamp(28px,4vw,48px)] font-black text-brand-cream tracking-tight">
                   Submission Queue
                 </h1>
@@ -192,7 +192,7 @@ function AdminContent() {
             <>
               <div className="mb-8 pt-6 flex items-end justify-between">
                 <div>
-                  <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Support Network</p>
+                  <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Support Network</p>
                   <h1 className="font-display text-[clamp(28px,4vw,48px)] font-black text-brand-cream tracking-tight">
                     সহযোগিতার আবেদন
                   </h1>

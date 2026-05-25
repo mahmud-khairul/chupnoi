@@ -32,7 +32,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-[400px]">
         {/* Logo */}
         <div className="text-center mb-10">
-          <div className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-3 flex items-center justify-center gap-1.5">
+          <div className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-3 flex items-center justify-center gap-1.5">
             <svg viewBox="0 0 20 20" fill="currentColor" width="10" height="10">
               <path d="M10 1L3 4v5c0 4.4 3 8.5 7 9.9C14 17.5 17 13.4 17 9V4L10 1z" />
             </svg>

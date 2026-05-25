@@ -33,7 +33,7 @@ function SuccessContent() {
           </div>
         </div>
 
-        <p className="text-[14px] text-brand-red font-bold tracking-[3px] uppercase mb-4">সফলভাবে জমা হয়েছে</p>
+        <p className="text-[10px] text-brand-red font-bold tracking-[3px] uppercase mb-4">সফলভাবে জমা হয়েছে</p>
         <h1 className="font-display text-[clamp(36px,6vw,64px)] font-black text-brand-cream tracking-tight leading-[0.95] mb-6">
           রিপোর্ট<br />পাওয়া গেছে।
         </h1>
