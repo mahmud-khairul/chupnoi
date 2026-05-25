@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "registry": "Registry",
+    "reportAbuse": "Report Abuse",
+    "adminPanel": "Admin Panel",
+    "signOut": "Sign Out"
+  },
+  "landing": {
+    "eyebrow": "Bangladesh Child Safety Initiative",
+    "title": "Child Protection Registry",
+    "description": "A transparent public record of individuals convicted of, charged with, or registered for offenses against children and sexual violence in Bangladesh.",
+    "reportBtn": "Report an Abuse",
+    "viewBtn": "View Registry",
+    "statsRecords": "Records Listed",
+    "statsConvictions": "Convictions",
+    "statsDistricts": "Districts",
+    "statsReports": "Reports Received"
+  },
+  "registry": {
+    "title": "Perpetrator Registry",
+    "searchPlaceholder": "Search name, offense, location...",
+    "allStatuses": "All Statuses",
+    "colName": "Name",
+    "colOffense": "Offense",
+    "colLocation": "Location",
+    "colDate": "Date",
+    "colStatus": "Status",
+    "noResults": "No records found."
+  },
+  "report": {
+    "title": "Report an Abuse",
+    "submitBtn": "Submit Report for Review"
+  },
+  "success": {
+    "title": "Report Submitted",
+    "returnBtn": "Return to Registry"
+  },
+  "admin": {
+    "loginTitle": "Admin Access",
+    "dashTitle": "Report Management",
+    "approve": "Approve",
+    "reject": "Reject",
+    "details": "Details"
+  }
+}

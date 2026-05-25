@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Submission {
+  id                    String    @id @default(uuid())
+  createdAt             DateTime  @default(now())
+  status                String    @default("pending")
+  victimName            String
+  victimAgeRange        String
+  victimGender          String
+  perpName              String
+  perpAge               String?
+  perpOccupation        String?
+  perpOrganization      String?
+  perpFamilyConnections String?
+  crimeTypes            String[]
+  incidentDate          String
+  incidentLocation      String
+  crimeDescription      String
+  convictionStatus      String
+  courtCaseNumber       String?
+  verdictDate           String?
+  sentenceStatus        String?
+  newsSources           String
+  firNumber             String?
+  currentLocation       String
+  caseStatus            String
+  appealsStatus         String?
+  additionalNotes       String?
+  submitterName         String?
+  submitterEmail        String
+  knowledgeSource       String
+  willingToContact      String
+  verifiedConsent       Boolean   @default(false)
+  privacyConsent        Boolean   @default(false)
+  adminNotes            String?
+  reviewedAt            DateTime?
+  tier                  String?
+  perpetrator           Perpetrator?
+}
+
+model Perpetrator {
+  id               String     @id @default(uuid())
+  createdAt        DateTime   @default(now())
+  submissionId     String     @unique
+  submission       Submission @relation(fields: [submissionId], references: [id])
+  name             String
+  age              String?
+  occupation       String?
+  organization     String?
+  crimeTypes       String[]
+  incidentDate     String
+  location         String
+  convictionStatus String
+  currentStatus    String
+  sentence         String?
+  newsSources      String?
+  tier             String?
+}
