@@ -326,17 +326,17 @@ export default async function LandingPage() {
         <div className={`${C} py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 sm:gap-8`}>
           <div>
             <h3 className="font-display text-[24px] font-black text-brand-cream mb-1 italic">
-              &ldquo;কিছু জানেন? জানান।&rdquo;
+              সাহায্য লাগবে? আমরা আছি তো? জানান!
             </h3>
             <p className="text-brand-muted text-[16px] font-light">
-              আপনার রিপোর্ট শিশু ও সমাজকে রক্ষা করতে পারে। প্রকাশের আগে সব তথ্য যাচাই করা হয়।
+              সাহায্য লাগলে কোনো দ্বিধা ছাড়াই আমাদেরকে জানান। কথা দিচ্ছি পাশে দাঁড়ানোর সর্বোচ্চ চেষ্টা করবো।
             </p>
           </div>
           <Link
-            href="/report"
+            href="/seek-help"
             className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline whitespace-nowrap flex-shrink-0 hover:bg-brand-red-dark transition-colors"
           >
-            রিপোর্ট করুন
+            হাত বারান →
           </Link>
         </div>
       </div>

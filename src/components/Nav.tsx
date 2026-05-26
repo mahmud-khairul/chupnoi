@@ -14,7 +14,7 @@ const navLinks = [
   { href: '/#who-are-we', label: 'আমরা কারা' },
   { href: '/what-we-want', label: 'আমাদের দাবি' },
   { href: '/report', label: 'রিপোর্ট করুন' },
-  { href: '/support-us', label: 'সহায়তা' },
+  { href: '/support-us', label: 'পার্টনার হন' },
   { href: '/seek-help', label: 'হাত বারান' },
 ]
 
