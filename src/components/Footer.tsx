@@ -48,10 +48,19 @@ export default function Footer() {
         <div>
           <Image src="/footer-logo.png" alt="চুপ নই" width={120} height={72} />
         </div>
-        <p className="text-[11px] text-[#333] sm:max-w-[380px] sm:text-center leading-relaxed">
-          All information is sourced from public court records and verified submissions.
-          If you believe a record is inaccurate, contact us for review.
-        </p>
+        <div className="sm:text-center sm:max-w-[380px]">
+          <p className="text-[11px] text-[#333] leading-relaxed mb-4">
+            All information is sourced from public court records and verified submissions.
+            If you believe a record is inaccurate, contact us for review.
+          </p>
+          <p className="text-[12px] text-brand-muted mb-2">প্রশ্ন থাকলে আমাদের সাথে সরাসরি যোগাযোগ করুন।</p>
+          <p className="text-[11px] text-[#555] mb-1">
+            <a href="https://surl.lu/wcnobf" target="_blank" rel="noopener noreferrer" className="hover:text-brand-cream transition-colors no-underline">Facebook group: https://surl.lu/wcnobf</a>
+          </p>
+          <p className="text-[11px] text-[#555]">
+            <a href="mailto:chupnoi.info@gmail.com" className="hover:text-brand-cream transition-colors no-underline">Email: chupnoi.info@gmail.com</a>
+          </p>
+        </div>
         <div className="flex flex-col items-start sm:items-end gap-3">
           {/* Share buttons */}
           <div className="flex items-center gap-2">
