@@ -55,7 +55,7 @@ export default async function LandingPage() {
               বিচার <span className="text-brand-red italic">বিলম্বিত</span> মানে বিচার না পাওয়া
             </h2>
             <p className="text-brand-muted text-[16px] leading-relaxed font-light mb-8">
-              বাংলাদেশের আদালতে ১৩২,১০৭ ধর্ষণের মামলা অপেক্ষমাণ। চারিটির একটি পাঁচ বছরেরও বেশি অপেক্ষা করেছে। বেঁচে যাওয়া মানুষ দ্রুত বিচার পাওয়ার যোগ্য।
+              বাংলাদেশের আদালতে ১,৩২,১০৭ ধর্ষণের মামলা অপেক্ষমাণ। চারিটির একটি পাঁচ বছরেরও বেশি অপেক্ষা করেছে। বেঁচে যাওয়া মানুষ দ্রুত বিচার পাওয়ার যোগ্য।
             </p>
             <Link
               href="/registry"
@@ -70,10 +70,10 @@ export default async function LandingPage() {
             style={{ gap: '1px', background: '#1e1e2e' }}
           >
             {[
-              { num: '132K+', label: 'অপেক্ষমাণ মামলা' },
-              { num: '99', label: 'আদালত' },
-              { num: '30K+', label: '৫+ বছর অপেক্ষায়' },
-              { num: '23%', label: 'সিস্টেমে আটকে আছে' },
+              { num: '১৩২,০০০+', label: 'অপেক্ষমাণ মামলা' },
+              { num: '৯৯', label: 'আদালত' },
+              { num: '৩০,০০০+', label: '৫+ বছর অপেক্ষায়' },
+              { num: '২৩%', label: 'সিস্টেমে আটকে আছে' },
             ].map(s => (
               <div
                 key={s.label}
