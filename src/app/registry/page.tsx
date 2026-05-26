@@ -32,7 +32,7 @@ export default function RegistryPage() {
       <Nav />
       <div className="pt-28 pb-12 flex-1">
         <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-7">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-7 gap-4">
           <div>
             <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
             <h1 className="font-display text-[clamp(32px,5vw,56px)] font-black text-brand-cream tracking-tight">
@@ -40,9 +40,9 @@ export default function RegistryPage() {
             </h1>
             <p className="text-[12px] text-brand-muted mt-1">{records.length} records</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <div
-              className="flex items-center gap-2 border border-brand-border px-3 py-2.5 min-w-[280px]"
+              className="flex items-center gap-2 border border-brand-border px-3 py-2.5 w-full sm:min-w-[280px]"
               style={{ background: '#0f0f0f' }}
             >
               <svg width="13" height="13" fill="none" stroke="#444" strokeWidth="2" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ export default function RegistryPage() {
             <select
               value={status}
               onChange={e => setStatus(e.target.value)}
-              className="border border-brand-border px-3 py-2.5 text-[12px] text-brand-muted outline-none cursor-pointer font-sans"
+              className="border border-brand-border px-3 py-2.5 text-[12px] text-brand-muted outline-none cursor-pointer font-sans w-full sm:w-auto"
               style={{ background: '#0f0f0f' }}
             >
               <option value="">All Statuses</option>
@@ -67,13 +67,15 @@ export default function RegistryPage() {
           </div>
         </div>
 
-        <div className="border border-brand-border overflow-hidden">
+        <div className="border border-brand-border overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-brand-card">
-                {['Name', 'Offense', 'Location', 'Date', 'Status'].map(h => (
-                  <th key={h} className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{h}</th>
-                ))}
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Name</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Offense</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Location</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Date</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Status</th>
               </tr>
             </thead>
             <tbody>

@@ -129,7 +129,7 @@ export default function ReportPage() {
 
   const noCase = form.convictionStatus === 'কোনো মামলা করা হয়নি'
   const card = 'border border-brand-border bg-brand-card p-7 mb-3'
-  const twoCol = 'grid grid-cols-2 gap-4'
+  const twoCol = 'grid grid-cols-1 sm:grid-cols-2 gap-4'
   const field = 'mb-5 last:mb-0'
   const radioList = 'flex flex-col gap-2 mt-1'
 

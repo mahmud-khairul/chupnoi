@@ -49,7 +49,7 @@ export default async function LandingPage() {
 
       {/* JUSTICE DELAYED */}
       <div style={{ background: '#0b0e18', borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a' }}>
-        <div className={`${C} py-14 flex gap-16 items-center`}>
+        <div className={`${C} py-14 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center`}>
           <div className="flex-1 max-w-[480px]">
             <h2 className="font-display text-[clamp(28px,4vw,44px)] font-black text-brand-cream leading-[1.1] mb-5">
               বিচার <span className="text-brand-red italic">বিলম্বিত</span> মানে বিচার না পাওয়া
@@ -66,7 +66,7 @@ export default async function LandingPage() {
           </div>
 
           <div
-            className="grid grid-cols-2 flex-shrink-0"
+            className="grid grid-cols-2 w-full lg:w-auto lg:flex-shrink-0"
             style={{ gap: '1px', background: '#1e1e2e' }}
           >
             {[
@@ -77,10 +77,10 @@ export default async function LandingPage() {
             ].map(s => (
               <div
                 key={s.label}
-                className="px-10 py-8 hover:brightness-110 transition-all"
-                style={{ background: 'rgba(192,57,43,0.08)', minWidth: '180px' }}
+                className="px-5 sm:px-10 py-5 sm:py-8 hover:brightness-110 transition-all"
+                style={{ background: 'rgba(192,57,43,0.08)' }}
               >
-                <div className="font-display text-[42px] font-black text-brand-red leading-none mb-2">{s.num}</div>
+                <div className="font-display text-[32px] sm:text-[42px] font-black text-brand-red leading-none mb-2">{s.num}</div>
                 <div className="text-[9px] text-brand-muted font-bold tracking-[2px] uppercase">{s.label}</div>
               </div>
             ))}
@@ -91,7 +91,7 @@ export default async function LandingPage() {
       {/* THREE PILLARS */}
       <div className="border-b border-brand-border">
         <div className={C}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#111' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: '1px', background: '#111' }}>
             {[
               { title: 'সমাজের সুরক্ষা', desc: 'এই তালিকা সমাজকে সেই মানুষদের সম্পর্কে তথ্য দেয় যারা শিশুদের জন্য হুমকিস্বরূপ।' },
               { title: 'যাচাইকৃত তথ্য', desc: 'প্রকাশের আগে প্রতিটি তথ্য আদালতের নথি, আইন প্রয়োগকারী সংস্থার তথ্য ও এনজিও রিপোর্টের বিপরীতে যাচাই করা হয়।' },
@@ -120,13 +120,15 @@ export default async function LandingPage() {
             </Link>
           </div>
 
-          <div className="border border-brand-border overflow-hidden">
+          <div className="border border-brand-border overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-brand-card">
-                  {['Name', 'Offense', 'Location', 'Date', 'Status'].map(h => (
-                    <th key={h} className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{h}</th>
-                  ))}
+                  <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Name</th>
+                  <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Offense</th>
+                  <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Location</th>
+                  <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Date</th>
+                  <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -173,7 +175,7 @@ export default async function LandingPage() {
             <h3 className="font-display text-[20px] font-bold text-brand-cream mb-1 pb-2" style={{ borderBottom: '2px solid #c0392b', display: 'inline-block' }}>
               সরকারের কাছে দাবি
             </h3>
-            <div className="grid grid-cols-3 gap-8 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6">
               {[
                 { n: '১', title: 'বাধ্যতামূলক রিপোর্টিং আইন', desc: 'যে কেউ জানলে আইনত জানাতে বাধ্য। চুপ থাকা নিজেই অপরাধ হবে।' },
                 { n: '২', title: 'জাতীয় যৌন অপরাধী নিবন্ধন', desc: 'দোষী সাব্যস্তদের একটি পাবলিক ডেটাবেজ। স্কুল ও প্রতিষ্ঠানগুলো নিয়োগের আগে দেখতে পারবে।' },
@@ -200,7 +202,7 @@ export default async function LandingPage() {
             <h3 className="font-display text-[20px] font-bold text-brand-cream mb-1 pb-2" style={{ borderBottom: '2px solid #c0392b', display: 'inline-block' }}>
               আমাদের যা করতে হবে
             </h3>
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
               {[
                 { n: '১', title: 'শরীরের নিরাপত্তার কথা বলুন', desc: 'শিশুকে বলুন, অনুমতি ছাড়া কেউ তার শরীর স্পর্শ করতে পারবে না। এই কথাটা জীবন বাঁচায়।' },
                 { n: '২', title: 'সতর্ক থাকুন, চুপ থাকবেন না', desc: 'সতর্কতার লক্ষণ দেখলে রিপোর্ট করুন। বুলিং, নিষ্ঠুরতা, নির্যাতন — কথা বলুন।' },
@@ -321,7 +323,7 @@ export default async function LandingPage() {
 
       {/* FOOTER CTA */}
       <div style={{ background: '#0d0d0d', borderTop: '3px solid #c0392b' }}>
-        <div className={`${C} py-8 flex justify-between items-center`}>
+        <div className={`${C} py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 sm:gap-8`}>
           <div>
             <h3 className="font-display text-[24px] font-black text-brand-cream mb-1 italic">
               &ldquo;কিছু জানেন? জানান।&rdquo;
@@ -332,7 +334,7 @@ export default async function LandingPage() {
           </div>
           <Link
             href="/report"
-            className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline whitespace-nowrap hover:bg-brand-red-dark transition-colors"
+            className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline whitespace-nowrap flex-shrink-0 hover:bg-brand-red-dark transition-colors"
           >
             রিপোর্ট করুন
           </Link>

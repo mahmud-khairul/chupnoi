@@ -60,7 +60,7 @@ export default function HeroSection() {
         </div>
 
         <div
-          className="grid grid-cols-3 mb-12 max-w-[680px]"
+          className="grid grid-cols-3 mb-12 w-full sm:max-w-[680px]"
           style={{ gap: '1px', background: '#1a1a1a' }}
         >
           {[
@@ -68,8 +68,8 @@ export default function HeroSection() {
             { num: '২৭%', label: '২০২৪ থেকে বৃদ্ধি' },
             { num: '৯৯%', label: 'মামলা জনসমক্ষে অদৃশ্য' },
           ].map(s => (
-            <div key={s.label} className="bg-brand-black px-6 py-5 hover:bg-brand-card transition-colors">
-              <div className="font-display text-[36px] font-black text-brand-red leading-none mb-2">{s.num}</div>
+            <div key={s.label} className="bg-brand-black px-3 sm:px-6 py-4 sm:py-5 hover:bg-brand-card transition-colors">
+              <div className="font-display text-[26px] sm:text-[36px] font-black text-brand-red leading-none mb-2">{s.num}</div>
               <div className="text-[9px] text-brand-muted font-bold tracking-[1.5px] uppercase">{s.label}</div>
             </div>
           ))}

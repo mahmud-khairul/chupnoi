@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="border-t border-brand-border bg-brand-black">
-      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex justify-between items-center">
+      <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-4">
         <div>
           <div className="font-display text-lg font-black text-brand-cream">
             চুপ <span className="text-brand-red">নই</span>
@@ -12,7 +12,7 @@ export default function Footer() {
             আমরা দেখছি। আমরা বলবো।
           </p>
         </div>
-        <p className="text-[11px] text-[#333] max-w-[380px] text-center leading-relaxed">
+        <p className="text-[11px] text-[#333] sm:max-w-[380px] sm:text-center leading-relaxed">
           All information is sourced from public court records and verified submissions.
           If you believe a record is inaccurate, contact us for review.
         </p>

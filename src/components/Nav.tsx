@@ -1,11 +1,23 @@
 'use client'
+import { useState } from 'react'
 import Link from 'next/link'
 
 interface NavProps {
   showAdminLinks?: boolean
 }
 
+const navLinks = [
+  { href: '/the-problem', label: 'সমস্যা' },
+  { href: '/registry', label: 'তালিকা' },
+  { href: '/#what-we-stand-for', label: 'আমাদের অবস্থান' },
+  { href: '/#who-are-we', label: 'আমরা কারা' },
+  { href: '/what-we-want', label: 'আমাদের দাবি' },
+  { href: '/report', label: 'রিপোর্ট করুন' },
+  { href: '/support-us', label: 'সহায়তা' },
+]
+
 export default function Nav({ showAdminLinks = false }: NavProps) {
+  const [menuOpen, setMenuOpen] = useState(false)
 
   async function handleSignOut() {
     await fetch('/api/admin/logout', { method: 'POST' })
@@ -22,36 +34,25 @@ export default function Nav({ showAdminLinks = false }: NavProps) {
           চুপ <span className="text-brand-red">নই</span>
         </Link>
 
-        <div className="flex items-center gap-1">
-          <Link href="/the-problem" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            সমস্যা
-          </Link>
-          <Link href="/registry" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            তালিকা
-          </Link>
-          <Link href="/#what-we-stand-for" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            আমাদের অবস্থান
-          </Link>
-          <Link href="/#who-are-we" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            আমরা কারা
-          </Link>
-          <Link href="/what-we-want" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            আমাদের দাবি
-          </Link>
-          <Link href="/report" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            রিপোর্ট করুন
-          </Link>
-          <Link href="/support-us" className="text-brand-muted hover:text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline">
-            সহায়তা
-          </Link>
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map(link => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-brand-muted hover:text-brand-cream text-[14px] font-medium tracking-wider uppercase px-3 py-1.5 border border-transparent hover:border-brand-border transition-all no-underline"
+            >
+              {link.label}
+            </Link>
+          ))}
           {showAdminLinks && (
             <>
-              <Link href="/admin" className="text-brand-cream text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 border border-brand-border no-underline">
+              <Link href="/admin" className="text-brand-cream text-[14px] font-medium tracking-wider uppercase px-3 py-1.5 border border-brand-border no-underline">
                 Admin Panel
               </Link>
               <button
                 onClick={handleSignOut}
-                className="text-brand-muted text-[11px] font-medium tracking-wider uppercase px-3 py-1.5 bg-transparent border-none cursor-pointer hover:text-brand-cream"
+                className="text-brand-muted text-[14px] font-medium tracking-wider uppercase px-3 py-1.5 bg-transparent border-none cursor-pointer hover:text-brand-cream"
               >
                 Sign Out
               </button>
@@ -59,7 +60,52 @@ export default function Nav({ showAdminLinks = false }: NavProps) {
           )}
         </div>
 
+        {/* Hamburger button — mobile only */}
+        <button
+          className="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8 bg-transparent border-none cursor-pointer p-1"
+          onClick={() => setMenuOpen(v => !v)}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-5 h-[1.5px] bg-brand-cream origin-center transition-all duration-200 ${menuOpen ? 'translate-y-[6.5px] rotate-45' : ''}`} />
+          <span className={`block w-5 h-[1.5px] bg-brand-cream transition-opacity duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-[1.5px] bg-brand-cream origin-center transition-all duration-200 ${menuOpen ? '-translate-y-[6.5px] -rotate-45' : ''}`} />
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="md:hidden border-t border-brand-border" style={{ background: 'rgba(10,10,10,0.99)' }}>
+          <div className="px-4 py-3 flex flex-col">
+            {navLinks.map(link => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-brand-muted hover:text-brand-cream text-[14px] font-medium tracking-wider uppercase px-2 py-3 border-b border-brand-border/40 transition-colors no-underline"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {showAdminLinks && (
+              <>
+                <Link
+                  href="/admin"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-brand-cream text-[14px] font-medium tracking-wider uppercase px-2 py-3 border-b border-brand-border/40 no-underline"
+                >
+                  Admin Panel
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="text-brand-muted text-left text-[14px] font-medium tracking-wider uppercase px-2 py-3 bg-transparent border-none cursor-pointer hover:text-brand-cream"
+                >
+                  Sign Out
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
