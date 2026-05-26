@@ -30,6 +30,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-playfair)', 'Georgia', 'serif'],
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        bengali: ['var(--font-noto-bengali)', 'serif'],
       },
     },
   },

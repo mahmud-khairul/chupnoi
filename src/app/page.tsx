@@ -111,7 +111,7 @@ export default async function LandingPage() {
         <div className={C}>
           <div className="flex justify-between items-end mb-6">
             <div>
-              <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
+              <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-1">Public Record</p>
               <h2 className="font-display text-[30px] font-black text-brand-cream">অপরাধী রেজিস্ট্রি</h2>
               <p className="text-[12px] text-brand-muted mt-1">Showing {records.length} of {stats.totalRecords} records</p>
             </div>
@@ -161,7 +161,7 @@ export default async function LandingPage() {
 
           {/* Header */}
           <div className="text-center mb-12">
-            <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের সনদ</p>
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">আমাদের সনদ</p>
             <h2 className="font-display text-[clamp(32px,5vw,52px)] font-black text-brand-cream leading-tight mb-4">
               আমরা যা <span className="text-brand-red italic">বিশ্বাস করি</span>
             </h2>
@@ -247,7 +247,7 @@ export default async function LandingPage() {
         <div className={`${C} py-16`}>
 
           <div className="max-w-[760px] mx-auto">
-            <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-4">আমাদের গল্প</p>
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">আমাদের গল্প</p>
             <h2 className="font-display text-[clamp(36px,5vw,56px)] font-black text-brand-cream leading-tight mb-2">
               আমরা কারা?
             </h2>

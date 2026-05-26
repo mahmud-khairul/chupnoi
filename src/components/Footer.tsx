@@ -1,16 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer className="border-t border-brand-border bg-brand-black">
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-4">
         <div>
-          <div className="font-display text-lg font-black text-brand-cream">
-            চুপ <span className="text-brand-red">নই</span>
-          </div>
-          <p className="text-brand-muted text-[11px] mt-1">
-            আমরা দেখছি। আমরা বলবো।
-          </p>
+          <Image src="/footer-logo.png" alt="চুপ নই" width={120} height={72} />
         </div>
         <p className="text-[11px] text-[#333] sm:max-w-[380px] sm:text-center leading-relaxed">
           All information is sourced from public court records and verified submissions.

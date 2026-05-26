@@ -346,7 +346,7 @@ function SuccessMessage() {
           </svg>
         </div>
       </div>
-      <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-3">সফলভাবে জমা হয়েছে</p>
+      <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-3">সফলভাবে জমা হয়েছে</p>
       <p className="font-display text-[32px] font-black text-brand-cream leading-tight mb-4">ধন্যবাদ।<br />পাশে আছেন।</p>
       <p className="text-brand-muted text-[14px] font-light leading-relaxed">
         আমরা তথ্যটি যাচাই করে শীঘ্রই যোগাযোগ করব। আপনার সহযোগিতা এই উদ্যোগকে আরও শক্তিশালী করবে।
@@ -383,7 +383,7 @@ export default function SupportUsPage() {
 
           {/* Header */}
           <div className="mb-12">
-            <p className="text-[10px] font-bold tracking-[3.5px] text-brand-red uppercase mb-4">চুপ নই · সহায়তা · নেটওয়ার্ক</p>
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">চুপ নই · সহায়তা · নেটওয়ার্ক</p>
             <h1 className="font-display font-black leading-[0.92] tracking-tight">
               <span className="block text-[clamp(48px,7vw,88px)] text-brand-cream">আপনার সহযোগিতা দিন।</span>
               <span className="block text-[clamp(48px,7vw,88px)] text-brand-red italic">পাশে দাঁড়ান।</span>

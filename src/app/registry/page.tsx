@@ -34,7 +34,7 @@ export default function RegistryPage() {
         <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-7 gap-4">
           <div>
-            <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Public Record</p>
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-1">Public Record</p>
             <h1 className="font-display text-[clamp(32px,5vw,56px)] font-black text-brand-cream tracking-tight">
               Perpetrator Registry
             </h1>

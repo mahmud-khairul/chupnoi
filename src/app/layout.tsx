@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, DM_Sans } from 'next/font/google'
+import { Playfair_Display, DM_Sans, Noto_Serif_Bengali } from 'next/font/google'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -15,6 +15,12 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500', '600'],
 })
 
+const notoSerifBengali = Noto_Serif_Bengali({
+  subsets: ['bengali'],
+  variable: '--font-noto-bengali',
+  weight: ['400', '600', '700'],
+})
+
 export const metadata: Metadata = {
   title: 'Safeguard BD - Name the Culprit',
   description: 'A transparent public record of child abuse and sexual violence perpetrators in Bangladesh.',
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${dmSans.variable} font-sans bg-brand-black text-brand-cream`}>
+      <body className={`${playfair.variable} ${dmSans.variable} ${notoSerifBengali.variable} font-sans bg-brand-black text-brand-cream`}>
         {children}
       </body>
     </html>

@@ -70,6 +70,17 @@ model SupportSubmission {
   institution   String?
 }
 
+model HelpRequest {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  type      String
+  name      String
+  location  String
+  phone     String
+  email     String
+  message   String
+}
+
 model Perpetrator {
   id               String     @id @default(uuid())
   createdAt        DateTime   @default(now())

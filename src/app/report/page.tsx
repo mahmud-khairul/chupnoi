@@ -138,7 +138,7 @@ export default function ReportPage() {
       <Nav />
       <div className="pt-28 pb-12 flex-1">
         <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] font-bold tracking-[3.5px] text-brand-red uppercase mb-3">চুপ নই · রিপোর্ট</p>
+          <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-3">চুপ নই · রিপোর্ট</p>
           <h1 className="font-display text-[clamp(28px,4vw,48px)] font-black text-brand-cream tracking-tight mb-3 max-w-[680px] leading-tight">
             শিশু নির্যাতন ও যৌন সহিংসতার অপরাধীদের তথ্য রিপোর্ট করুন
           </h1>

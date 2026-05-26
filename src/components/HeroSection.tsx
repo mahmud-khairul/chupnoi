@@ -40,7 +40,7 @@ export default function HeroSection() {
       />
 
       <div className={`${C} pt-28 pb-16 flex flex-col justify-center relative`}>
-        <div className="text-[10px] text-brand-red font-bold tracking-[3.5px] uppercase mb-8 flex items-center gap-1.5">
+        <div className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-8 flex items-center gap-1.5">
           <svg viewBox="0 0 20 20" fill="currentColor" width="10" height="10">
             <path d="M10 1L3 4v5c0 4.4 3 8.5 7 9.9C14 17.5 17 13.4 17 9V4L10 1z" />
           </svg>

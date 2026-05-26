@@ -13,7 +13,7 @@ export default function TheProblemPage() {
           <div className="max-w-[800px] mx-auto">
 
             {/* Eyebrow */}
-            <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-4">
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">
               চুপ নই | বাংলাদেশ | ২০২৫
             </p>
 

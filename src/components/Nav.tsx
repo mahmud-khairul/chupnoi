@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface NavProps {
   showAdminLinks?: boolean
@@ -14,6 +15,7 @@ const navLinks = [
   { href: '/what-we-want', label: 'আমাদের দাবি' },
   { href: '/report', label: 'রিপোর্ট করুন' },
   { href: '/support-us', label: 'সহায়তা' },
+  { href: '/seek-help', label: 'হাত বারান' },
 ]
 
 export default function Nav({ showAdminLinks = false }: NavProps) {
@@ -30,8 +32,8 @@ export default function Nav({ showAdminLinks = false }: NavProps) {
       className="fixed top-0 left-0 right-0 z-50 border-b border-brand-border"
     >
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4 gap-3">
-        <Link href="/" className="font-display text-xl font-black text-brand-cream no-underline whitespace-nowrap">
-          চুপ <span className="text-brand-red">নই</span>
+        <Link href="/" className="no-underline flex-shrink-0">
+          <Image src="/logo.png" alt="চুপ নই" width={92} height={56} priority />
         </Link>
 
         {/* Desktop links */}
