@@ -18,6 +18,17 @@ type Submission = {
   status: string
 }
 
+type HelpRequest = {
+  id: string
+  createdAt: string
+  type: string
+  name: string
+  location: string
+  phone: string
+  email: string
+  message: string
+}
+
 type SupportSubmission = {
   id: string
   type: string
@@ -50,11 +61,13 @@ function AdminContent() {
   const router = useRouter()
   const selectedId = searchParams.get('report')
 
-  const [panel, setPanel] = useState<'reports' | 'support'>('reports')
+  const [panel, setPanel] = useState<'reports' | 'support' | 'seek-help'>('reports')
   const [statusFilter, setStatusFilter] = useState<'pending' | 'approved' | 'rejected'>('pending')
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const [stats, setStats] = useState<Stats>({ pending: 0, approved: 0, rejected: 0 })
   const [support, setSupport] = useState<SupportSubmission[]>([])
+  const [helpRequests, setHelpRequests] = useState<HelpRequest[]>([])
+  const [helpTypeFilter, setHelpTypeFilter] = useState<'all' | 'legal' | 'medical'>('all')
   const [filterType, setFilterType] = useState<'all' | 'ngo' | 'lawyer' | 'doctor'>('all')
   const [loading, setLoading] = useState(true)
   const [expandedId, setExpandedId] = useState<string | null>(null)
@@ -78,19 +91,28 @@ function AdminContent() {
       .then(data => { setSupport(data.submissions ?? []); setLoading(false) })
   }
 
+  function loadHelpRequests() {
+    setLoading(true)
+    fetch('/api/admin/help-requests')
+      .then(r => r.json())
+      .then(data => { setHelpRequests(data.requests ?? []); setLoading(false) })
+  }
+
   useEffect(() => { loadReports() }, [])
 
-  function switchPanel(p: 'reports' | 'support') {
+  function switchPanel(p: 'reports' | 'support' | 'seek-help') {
     setPanel(p)
     setExpandedId(null)
     if (p === 'reports') { setStatusFilter('pending'); loadReports('pending') }
-    else loadSupport()
+    else if (p === 'support') loadSupport()
+    else loadHelpRequests()
   }
 
   function openDetail(id: string) { router.push(`/admin?report=${id}`) }
   function closeDetail() { router.push('/admin'); loadReports() }
 
   const filteredSupport = filterType === 'all' ? support : support.filter(s => s.type === filterType)
+  const filteredHelp = helpTypeFilter === 'all' ? helpRequests : helpRequests.filter(r => r.type === helpTypeFilter)
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -117,7 +139,13 @@ function AdminContent() {
               Support Network
             </button>
             <button
-              onClick={async () => { await fetch('/api/admin/logout', { method: 'POST' }); router.push('/admin/login') }}
+              onClick={() => switchPanel('seek-help')}
+              className={`text-[11px] font-bold tracking-[1.5px] uppercase px-4 py-1.5 border transition-colors cursor-pointer ${panel === 'seek-help' ? 'border-brand-red text-brand-red' : 'border-brand-border text-brand-muted hover:text-brand-cream'}`}
+            >
+              Support Help
+            </button>
+            <button
+              onClick={async () => { await fetch('/api/admin/logout', { method: 'POST' }); router.push('/') }}
               className="text-[11px] text-brand-muted hover:text-brand-cream font-bold tracking-[1.5px] uppercase transition-colors border border-brand-border px-3 py-1.5 ml-4"
             >
               Logout
@@ -283,6 +311,87 @@ function AdminContent() {
                     )}
                   </div>
                 ))}
+              </div>
+            </>
+          )}
+
+          {/* ── SEEK HELP PANEL ── */}
+          {panel === 'seek-help' && (
+            <>
+              <div className="mb-8 pt-6 flex items-end justify-between flex-wrap gap-4">
+                <div>
+                  <p className="text-[12px] text-brand-red font-bold tracking-[3px] uppercase mb-1">Support Help</p>
+                  <h1 className="font-display text-[clamp(28px,4vw,48px)] font-black text-brand-cream tracking-tight">
+                    হাত বারান — অনুরোধ
+                  </h1>
+                  <p className="text-brand-muted text-[13px] mt-1">{filteredHelp.length} request{filteredHelp.length !== 1 ? 's' : ''}</p>
+                </div>
+                <div className="flex gap-1">
+                  {(['all', 'legal', 'medical'] as const).map(t => (
+                    <button
+                      key={t}
+                      onClick={() => setHelpTypeFilter(t)}
+                      className={`text-[10px] font-bold tracking-[1.5px] uppercase px-3 py-1.5 border cursor-pointer transition-colors ${helpTypeFilter === t ? 'bg-brand-red border-brand-red text-white' : 'border-brand-border text-brand-muted bg-transparent hover:text-brand-cream'}`}
+                    >
+                      {t === 'all' ? 'সব' : t === 'legal' ? 'আইনি সহায়তা' : 'ডাক্তার / মনোবিজ্ঞানী'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {loading && <p className="text-brand-muted text-sm py-12 text-center">Loading...</p>}
+              {!loading && filteredHelp.length === 0 && <p className="text-brand-muted text-sm py-12 text-center">No requests yet.</p>}
+
+              <div className="border border-brand-border overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="bg-brand-card">
+                      {['নাম', 'ধরন', 'লোকেশন', 'ফোন', 'ইমেইল', 'তারিখ'].map(h => (
+                        <th key={h} className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredHelp.map((r, i) => (
+                      <tr
+                        key={r.id}
+                        className={`border-b border-brand-border cursor-pointer hover:bg-brand-card transition-colors ${i % 2 === 1 ? 'bg-[#080808]' : 'bg-brand-black'}`}
+                        onClick={() => setExpandedId(expandedId === r.id ? null : r.id)}
+                      >
+                        <td className="px-5 py-3.5">
+                          <div className="font-display text-[14px] font-bold text-brand-cream">{r.name}</div>
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <span
+                            className="text-[9px] font-black tracking-[1px] uppercase px-2 py-1"
+                            style={r.type === 'legal'
+                              ? { background: '#3b82f622', color: '#3b82f6', border: '1px solid #3b82f644' }
+                              : { background: '#10b98122', color: '#10b981', border: '1px solid #10b98144' }}
+                          >
+                            {r.type === 'legal' ? 'আইনি' : 'ডাক্তার'}
+                          </span>
+                        </td>
+                        <td className="px-5 py-3.5 text-[12px] text-brand-muted">{r.location}</td>
+                        <td className="px-5 py-3.5 text-[12px] text-brand-muted">{r.phone}</td>
+                        <td className="px-5 py-3.5 text-[12px] text-brand-muted">{r.email}</td>
+                        <td className="px-5 py-3.5 text-[11px] text-[#444] whitespace-nowrap">
+                          {new Date(r.createdAt).toLocaleDateString('bn-BD')}
+                        </td>
+                      </tr>
+                    ))}
+                    {expandedId && filteredHelp.find(r => r.id === expandedId) && (() => {
+                      const r = filteredHelp.find(r => r.id === expandedId)!
+                      return (
+                        <tr key={`${r.id}-expanded`}>
+                          <td colSpan={6} className="px-5 py-5 border-b border-brand-border" style={{ background: '#080808' }}>
+                            <p className="text-[9px] text-[#444] font-bold tracking-[1.5px] uppercase mb-2">বিস্তারিত বার্তা</p>
+                            <p className="text-[13px] text-brand-muted leading-relaxed whitespace-pre-wrap">{r.message}</p>
+                          </td>
+                        </tr>
+                      )
+                    })()}
+                  </tbody>
+                </table>
               </div>
             </>
           )}

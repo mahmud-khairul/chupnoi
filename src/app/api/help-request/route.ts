@@ -15,7 +15,8 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ ok: true })
-  } catch {
+  } catch (err) {
+    console.error('[help-request]', err)
     return NextResponse.json({ error: 'কিছু একটা ভুল হয়েছে।' }, { status: 500 })
   }
 }
