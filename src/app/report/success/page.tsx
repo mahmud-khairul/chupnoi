@@ -1,14 +1,18 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { Suspense } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
+import { useT } from '@/lib/translations'
 
 function SuccessContent() {
   const params = useSearchParams()
   const router = useRouter()
+  const { lang } = useLanguage()
+  const T = useT(lang)
+  const S = T.reportSuccess
 
   useEffect(() => {
     if (params.get('submitted') !== '1') {
@@ -21,7 +25,6 @@ function SuccessContent() {
   return (
     <div className="flex-1 flex items-center justify-center px-10 py-24">
       <div className="max-w-[560px] w-full text-center">
-        {/* Check circle */}
         <div className="flex justify-center mb-8">
           <div
             className="w-20 h-20 rounded-full flex items-center justify-center"
@@ -33,9 +36,11 @@ function SuccessContent() {
           </div>
         </div>
 
-        <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">সফলভাবে জমা হয়েছে</p>
+        <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-4">{S.eyebrow}</p>
         <h1 className="font-display text-[clamp(36px,6vw,64px)] font-black text-brand-cream tracking-tight leading-[0.95] mb-6">
-          রিপোর্ট<br />পাওয়া গেছে।
+          {S.title.split('\n').map((line, i) => (
+            <span key={i}>{line}{i < S.title.split('\n').length - 1 && <br />}</span>
+          ))}
         </h1>
 
         <div
@@ -43,15 +48,11 @@ function SuccessContent() {
           style={{ background: '#0f0f0f' }}
         >
           <div className="space-y-4 text-[16px] text-brand-muted leading-relaxed font-light">
+            <p>{S.para1}</p>
             <p>
-              তথ্যটি জমা দেওয়ার জন্য আপনাকে ধন্যবাদ। আমাদের পার্টনারদের দ্বারা আপনার দেওয়া তথ্যটি পর্যালোচনা করা হবে।
+              <span className="text-brand-cream font-medium">{S.para2strong}</span> {S.para2end}
             </p>
-            <p>
-              <span className="text-brand-cream font-medium">ভবিষ্যতে আপনার সাথে যোগাযোগ করা হতে পারে।</span> তথ্যটি সঠিকভাবে যাচাই করা সম্ভব হলে, এটি পাবলিক ডাটাবেজে যুক্ত করা হবে।
-            </p>
-            <p>
-              আপনি কোনো স্বয়ংক্রিয় নিশ্চিতকরণ ইমেল পাবেন না, তবে আপনার জমা তথ্য রেকর্ড করা হয়েছে।
-            </p>
+            <p>{S.para3}</p>
           </div>
         </div>
 
@@ -60,10 +61,8 @@ function SuccessContent() {
           style={{ background: '#0f0f0f', borderLeft: '3px solid #c0392b' }}
         >
           <p className="text-[11px] text-brand-muted font-light leading-relaxed">
-            <span className="text-brand-cream font-medium">জরুরি সাহায্য দরকার?</span>{' '}
-            আইন ও সালিশ কেন্দ্র:{' '}
-            <span className="text-brand-cream">০১৭৭৯-৫৫৪৩৯১</span> অথবা বাংলাদেশ জাতীয় মহিলা আইনজীবী সমিতি:{' '}
-            <span className="text-brand-cream">০১৭১১-৬৬৪১৬৫</span>।
+            <span className="text-brand-cream font-medium">{S.urgentLabel}</span>{' '}
+            {S.urgentBody}
           </p>
         </div>
 
@@ -72,13 +71,13 @@ function SuccessContent() {
             href="/registry"
             className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:bg-brand-red-dark transition-colors"
           >
-            তালিকা দেখুন
+            {S.viewRegistry}
           </Link>
           <Link
             href="/"
             className="text-brand-cream border border-brand-border px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:border-[#444] transition-colors"
           >
-            হোমে ফিরুন
+            {S.goHome}
           </Link>
         </div>
       </div>

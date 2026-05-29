@@ -9,6 +9,17 @@ export const CRIME_TYPES = [
   'অন্যান্য',
 ]
 
+export const CRIME_TYPES_EN = [
+  'Child Sexual Abuse',
+  'Rape',
+  'Gang Rape',
+  'Attempted Rape',
+  'Sexual Harassment',
+  'Child Trafficking',
+  'Murder (Death resulting from sexual abuse)',
+  'Other',
+]
+
 export const VICTIM_AGE_RANGES = [
   '৫ বছরের কম',
   '৫-১০ বছর',
@@ -16,6 +27,15 @@ export const VICTIM_AGE_RANGES = [
   '১৬-১৭ বছর',
   '১৮+ বছর',
   'জানা নেই',
+]
+
+export const VICTIM_AGE_RANGES_EN = [
+  'Under 5 years',
+  '5–10 years',
+  '11–15 years',
+  '16–17 years',
+  '18+ years',
+  'Unknown',
 ]
 
 export const CONVICTION_STATUSES = [
@@ -29,6 +49,17 @@ export const CONVICTION_STATUSES = [
   'আদালতের বাইরে মীমাংসা করা হয়েছে',
 ]
 
+export const CONVICTION_STATUSES_EN = [
+  'No case filed',
+  'Convicted/Sentenced (court verdict delivered)',
+  'Arrested (in police custody or prison)',
+  'Charged (case filed, trial ongoing)',
+  'Suspected (suspected but not yet arrested)',
+  'Absconded (suspect is in hiding)',
+  'Released/Acquitted (was convicted but currently free)',
+  'Out-of-court settlement',
+]
+
 export const CURRENT_LOCATIONS = [
   'মুক্ত বা স্বাধীনভাবে ঘুরছেন',
   'জেলে বা কারাগারে আছেন',
@@ -39,6 +70,16 @@ export const CURRENT_LOCATIONS = [
   'জানা নেই',
 ]
 
+export const CURRENT_LOCATIONS_EN = [
+  'Free / At large',
+  'In jail or prison',
+  'On bail',
+  'Absconded',
+  'Released (sentence served)',
+  'Deceased',
+  'Unknown',
+]
+
 export const KNOWLEDGE_SOURCES = [
   'ব্যক্তিগতভাবে জানি (পরিবার বা বন্ধু ক্ষতিগ্রস্ত হয়েছে)',
   'সংবাদ মাধ্যম বা পত্রিকার খবর',
@@ -47,6 +88,16 @@ export const KNOWLEDGE_SOURCES = [
   'আদালতের নথিপত্র',
   'সোশ্যাল মিডিয়া (ফেসবুক/অন্যান্য)',
   'অন্যান্য',
+]
+
+export const KNOWLEDGE_SOURCES_EN = [
+  'Personally know (family or friend affected)',
+  'News media or newspaper report',
+  'NGO or human rights organization',
+  'Police records or documents',
+  'Court documents',
+  'Social media (Facebook/others)',
+  'Other',
 ]
 
 export const TIERS = ['green', 'yellow', 'red'] as const

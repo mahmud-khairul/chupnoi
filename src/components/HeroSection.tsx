@@ -1,11 +1,15 @@
 'use client'
 import { useRef, useCallback } from 'react'
 import Link from 'next/link'
+import { useLanguage } from '@/context/LanguageContext'
+import { useT } from '@/lib/translations'
 
 const C = 'max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8'
 
 export default function HeroSection() {
   const flareRef = useRef<HTMLDivElement>(null)
+  const { lang } = useLanguage()
+  const T = useT(lang)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
@@ -44,7 +48,7 @@ export default function HeroSection() {
           <svg viewBox="0 0 20 20" fill="currentColor" width="10" height="10">
             <path d="M10 1L3 4v5c0 4.4 3 8.5 7 9.9C14 17.5 17 13.4 17 9V4L10 1z" />
           </svg>
-          বাংলাদেশ শিশু সুরক্ষা উদ্যোগ
+          {T.hero.eyebrow}
         </div>
 
         <h1 className="font-display font-black leading-[0.92] tracking-tight mb-8 max-w-[820px]">
@@ -53,21 +57,15 @@ export default function HeroSection() {
         </h1>
 
         <div className="mb-10 max-w-[480px]">
-          <p className="text-brand-cream text-[15px] mb-2 font-light">আমরা দেখছি। আমরা বলবো।</p>
-          <p className="text-brand-muted text-[15px] leading-relaxed font-light">
-            আমরা সাধারণ মানুষ। একটা শিশু কষ্ট পেলে ঘুমাতে পারি না। তাই এটা বানিয়েছি।
-          </p>
+          <p className="text-brand-cream text-[15px] mb-2 font-light">{T.hero.tagline}</p>
+          <p className="text-brand-muted text-[15px] leading-relaxed font-light">{T.hero.sub}</p>
         </div>
 
         <div
           className="grid grid-cols-3 mb-12 w-full sm:max-w-[680px]"
           style={{ gap: '1px', background: '#1a1a1a' }}
         >
-          {[
-            { num: '৭,০৬৮', label: '২০২৫ সালে ধর্ষণের মামলা' },
-            { num: '২৭%', label: '২০২৪ থেকে বৃদ্ধি' },
-            { num: '৯৯%', label: 'মামলা জনসমক্ষে অদৃশ্য' },
-          ].map(s => (
+          {T.hero.stats.map(s => (
             <div key={s.label} className="bg-brand-black px-3 sm:px-6 py-4 sm:py-5 hover:bg-brand-card transition-colors">
               <div className="font-display text-[26px] sm:text-[36px] font-black text-brand-red leading-none mb-2">{s.num}</div>
               <div className="text-[9px] text-brand-muted font-bold tracking-[1.5px] uppercase">{s.label}</div>
@@ -80,13 +78,13 @@ export default function HeroSection() {
             href="/report"
             className="bg-brand-red text-brand-cream px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:bg-brand-red-dark transition-colors"
           >
-            Report a Case →
+            {T.hero.reportBtn}
           </Link>
           <Link
             href="/registry"
             className="text-brand-cream border border-[#2a2a2a] px-7 py-3.5 text-[11px] font-bold tracking-[1.5px] uppercase no-underline hover:border-[#444] transition-colors"
           >
-            View Registry
+            {T.hero.viewBtn}
           </Link>
         </div>
       </div>

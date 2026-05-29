@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import StatusBadge from '@/components/StatusBadge'
+import { useLanguage } from '@/context/LanguageContext'
+import { useT } from '@/lib/translations'
 
 type Perpetrator = {
   id: string; name: string; age: string | null; crimeTypes: string[]
@@ -16,6 +18,9 @@ export default function RegistryPage() {
   const [search, setSearch] = useState('')
   const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(true)
+  const { lang } = useLanguage()
+  const T = useT(lang)
+  const R = T.registry
 
   useEffect(() => {
     setLoading(true)
@@ -34,11 +39,11 @@ export default function RegistryPage() {
         <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-7 gap-4">
           <div>
-            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-1">Public Record</p>
+            <p className="text-[12px] text-brand-red font-bengali font-bold tracking-normal uppercase mb-1">{R.eyebrow}</p>
             <h1 className="font-display text-[clamp(32px,5vw,56px)] font-black text-brand-cream tracking-tight">
-              Perpetrator Registry
+              {R.title}
             </h1>
-            <p className="text-[12px] text-brand-muted mt-1">{records.length} records</p>
+            <p className="text-[12px] text-brand-muted mt-1">{R.records(records.length)}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <div
@@ -51,7 +56,7 @@ export default function RegistryPage() {
               <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                placeholder="Search name, offense, location..."
+                placeholder={R.searchPlaceholder}
                 className="border-none outline-none text-[16px] text-brand-cream bg-transparent flex-1 font-sans placeholder:text-[#444]"
               />
             </div>
@@ -61,7 +66,7 @@ export default function RegistryPage() {
               className="border border-brand-border px-3 py-2.5 text-[12px] text-brand-muted outline-none cursor-pointer font-sans w-full sm:w-auto"
               style={{ background: '#0f0f0f' }}
             >
-              <option value="">All Statuses</option>
+              <option value="">{R.allStatuses}</option>
               {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
           </div>
@@ -71,25 +76,25 @@ export default function RegistryPage() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-brand-card">
-                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Name</th>
-                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Offense</th>
-                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Location</th>
-                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Date</th>
-                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">Status</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{R.colName}</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{R.colOffense}</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{R.colLocation}</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{R.colDate}</th>
+                <th className="text-left px-5 py-3 text-[9px] font-bold tracking-[2px] text-[#444] uppercase border-b border-brand-border">{R.colStatus}</th>
               </tr>
             </thead>
             <tbody>
               {loading && (
-                <tr><td colSpan={5} className="px-5 py-12 text-center text-brand-muted text-sm">Loading...</td></tr>
+                <tr><td colSpan={5} className="px-5 py-12 text-center text-brand-muted text-sm">{R.loading}</td></tr>
               )}
               {!loading && records.length === 0 && (
-                <tr><td colSpan={5} className="px-5 py-12 text-center text-brand-muted text-sm">No records found.</td></tr>
+                <tr><td colSpan={5} className="px-5 py-12 text-center text-brand-muted text-sm">{R.noRecords}</td></tr>
               )}
               {records.map((r, i) => (
                 <tr key={r.id} className={`border-b border-brand-border hover:bg-brand-card transition-colors ${i % 2 === 1 ? 'bg-[#080808]' : 'bg-brand-black'}`}>
                   <td className="px-5 py-4">
                     <div className="font-display text-[14px] font-bold text-brand-cream">{r.name}</div>
-                    {r.age && <div className="text-[11px] text-brand-muted mt-0.5">Age {r.age}</div>}
+                    {r.age && <div className="text-[11px] text-brand-muted mt-0.5">{R.ageLabel} {r.age}</div>}
                   </td>
                   <td className="px-5 py-4 text-[12px] text-brand-muted">{r.crimeTypes.join(', ')}</td>
                   <td className="px-5 py-4 text-[12px] text-brand-muted">{r.location}</td>

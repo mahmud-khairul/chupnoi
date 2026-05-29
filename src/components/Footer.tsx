@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useLanguage } from '@/context/LanguageContext'
+import { useT } from '@/lib/translations'
 
 const SITE_URL = 'https://chupnoi.vercel.app'
 const SHARE_TEXT = 'চুপ নই। বাংলাদেশ শিশু সুরক্ষা উদ্যোগ — আমরা দেখছি। আমরা বলবো।'
@@ -42,6 +44,9 @@ const shareLinks = [
 ]
 
 export default function Footer() {
+  const { lang } = useLanguage()
+  const T = useT(lang)
+
   return (
     <footer className="border-t border-brand-border bg-brand-black">
       <div className="max-w-[1200px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-4">
@@ -50,10 +55,9 @@ export default function Footer() {
         </div>
         <div className="sm:text-center sm:max-w-[380px]">
           <p className="text-[11px] text-[#333] leading-relaxed mb-4">
-            All information is sourced from public court records and verified submissions.
-            If you believe a record is inaccurate, contact us for review.
+            {T.footer.disclaimer}
           </p>
-          <p className="text-[12px] text-brand-muted mb-2">প্রশ্ন থাকলে আমাদের সাথে সরাসরি যোগাযোগ করুন।</p>
+          <p className="text-[12px] text-brand-muted mb-2">{T.footer.contactPrompt}</p>
           <p className="text-[11px] text-[#555] mb-1">
             <a href="https://surl.lu/wcnobf" target="_blank" rel="noopener noreferrer" className="hover:text-brand-cream transition-colors no-underline">Facebook group: https://surl.lu/wcnobf</a>
           </p>
@@ -62,9 +66,8 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-col items-start sm:items-end gap-3">
-          {/* Share buttons */}
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-[#333] font-bold tracking-widest uppercase mr-1">শেয়ার</span>
+            <span className="text-[10px] text-[#333] font-bold tracking-widest uppercase mr-1">{T.footer.share}</span>
             {shareLinks.map(s => (
               <a
                 key={s.name}
@@ -81,7 +84,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          {/* Admin link */}
           <Link
             href="/admin/login"
             className="flex items-center gap-1.5 text-[#444] text-[10px] font-bold tracking-widest uppercase border border-[#222] px-3 py-2 no-underline hover:text-[#666] hover:border-[#333] transition-all"
