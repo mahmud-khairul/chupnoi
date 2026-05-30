@@ -341,7 +341,7 @@ const t = {
 
     hero: {
       eyebrow: 'Bangladesh Child Protection Initiative',
-      tagline: 'We are watching. We will speak.',
+      tagline: 'We See. We Speak.',
       sub: 'We are ordinary people. We cannot sleep when a child suffers. That is why we built this.',
       stats: [
         { num: '7,068', label: 'Rape cases in 2025' },
@@ -416,7 +416,7 @@ const t = {
       whoInline: 'What comes next?',
       whoStrong: 'That is who we are.',
       whoClosing: 'We are witnesses. We keep records. We are the people who say,',
-      whoQuote: '“We are watching. We will speak.”',
+      whoQuote: '”We See. We Speak.”',
       whoBrand: 'চুপ নই।',
       ctaTitle: 'Need Help? We\'re Here. Let Us Know!',
       ctaBody: 'Don\'t hesitate to let us know if you need help. We promise to do our best to stand by you.',
